@@ -48,7 +48,10 @@ def drawBitmap(path,x,y,fbuf,invert=False):
     posx = x +imagesize[0]
     posy = y
     for row in imagerows:
-        imagedata += row[:-rowPadding]
+        if rowPadding > 0:
+            imagedata += row[:-rowPadding]
+        else:
+            imagedata += row
         
     DrawPixels(x,y,imagedata,imagesize,fbuf,invert=invert)
                 
