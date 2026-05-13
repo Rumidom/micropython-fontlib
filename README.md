@@ -32,7 +32,7 @@ oled.show()
 ```
 see the [examples folder](https://github.com/Rumidom/Micropython_Fontlib/tree/main/examples) to see how to use it with diferent displays.
 
-### Bliting a Sprite
+### Bliting a bitmap
 
 ```python
 import framebuf
@@ -53,7 +53,7 @@ fbuf.fill(0)
 
 pos_x = 0 # X position on the frame buffer to blit sprite
 pos_y = 0 # Y position on the frame buffer to blit sprite
-drawBitmap('image.bmp',pos_x,pos_y,invert=False,fbuf):
+fontlib.drawBitmap('image.bmp',pos_x,pos_y,fbuf,invert=False):
 
 oled.show()
 ```
