@@ -1,6 +1,7 @@
 import math
 
-def reverse_Bits(n, no_of_bits):
+@micropython.viper
+def reverse_Bits(n:int, no_of_bits:int)->int:
     result = 0
     for i in range(no_of_bits):
         result <<= 1
@@ -8,6 +9,7 @@ def reverse_Bits(n, no_of_bits):
         n >>= 1
     return result
 
+@micropython.native
 def getbitmap(path):
     try:
         file = open(path, "rb")
@@ -36,6 +38,7 @@ def getbitmap(path):
     imagerows = tuple(imagerows)
     return (imagerows,imagesize,filezise,dataOffset,fmat,bmptag,pallet)
 
+@micropython.native
 def drawBitmap(path,x,y,fbuf,invert=False):
     bmp_tup = getbitmap(path)
     pallet = bmp_tup[6]
@@ -54,7 +57,8 @@ def drawBitmap(path,x,y,fbuf,invert=False):
             imagedata += row
         
     DrawPixels(x,y,imagedata,imagesize,fbuf,invert=invert)
-                
+
+@micropython.native
 def getCutTile(imagerows,tilepos,chopsize,imagesize,paddingsize = 1):
     newchopsize = (chopsize[0]+paddingsize*2,chopsize[1]+paddingsize*2)
     left = tilepos[0] * newchopsize[0]
@@ -79,6 +83,7 @@ def getCutTile(imagerows,tilepos,chopsize,imagesize,paddingsize = 1):
                 k = 0
     return cutdata
 
+@micropython.native
 def chop_image(imagepath, chopsize,paddingsize = 1):
     #like dicing an onion
     bmptup = getbitmap(imagepath)
@@ -108,7 +113,8 @@ class font():
     def getchar(self,N):
         #print("N:",N)
         return self.CharList[N]
-    
+
+@micropython.native
 def DrawPixels(xpos,ypos,charbytes,charsize,fbuf,invert=False,fill = 1):
     orig_y = ypos
     orig_x = xpos
@@ -122,7 +128,8 @@ def DrawPixels(xpos,ypos,charbytes,charsize,fbuf,invert=False,fill = 1):
             if xpos >= charsize[0]+orig_x:
                 xpos = orig_x
                 ypos += 1
-            
+
+@micropython.native      
 def printchar(letter,xpos,ypos,fbuf,font,invert = False,charwidth=None,fill = 1):
     Schar_dict = {231: (None, 99, 96), 199: (None, 67, 96), 225: (98, 97, None), 233: (98, 101, None), 237: (98, 105, None), 243: (98, 111, None), 250: (98, 117, None), 193: (103, 65, None), 201: (103, 69, None), 205: (103, 73, None), 211: (103, 79, None), 218: (103, 85, None), 226: (99, 97, None), 234: (99, 97, None), 244: (99, 111, None), 227: (94, 97, None), 245: (94, 111, None), 194: (104, 65, None), 202: (104, 69, None), 212: (104, 79, None), 195: (107, 65, None), 213: (107, 79, None)}
     if charwidth == None:
@@ -149,7 +156,7 @@ def printchar(letter,xpos,ypos,fbuf,font,invert = False,charwidth=None,fill = 1)
         addbelow = font.getchar(addbelowval)
         DrawPixels(xpos,ypos+font.size[1],addbelow,font.size,fbuf,invert=invert,fill = fill)
         
-    
+@micropython.native
 def prt(string,xpos,ypos,spce,fbuf,font,invert=False,color = None):
     char_size = font.size
     if color == None:
