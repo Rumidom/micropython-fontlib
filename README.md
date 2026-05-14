@@ -87,7 +87,7 @@ img.save('output_1bit.bmp')
 ### [Cellphone 5X7](https://opengameart.org/content/ascii-bitmap-font-cellphone) [84x48 1.5 Inch Nokia 5110 LCD Screen]:  
 <img src='./photos/cellphone.png' width='300'><img src='./fonts/cellphone (5,7).bmp' width='300'>  
 
-### Icons 5X7 (Made by the Author) [84x48 1.5 Inch Nokia 5110 LCD Screen]:  
+### Icons 5X7 (Created by the Author) [84x48 1.5 Inch Nokia 5110 LCD Screen]:  
 <img src='./photos/icons.png' width='300'><img src='./fonts/icons (5,7).bmp' width='300'>  
 
 ### [IBM BIOS 8x8](https://int10h.org/oldschool-pc-fonts/fontlist/font?ibm_bios) [120x120 1.28 Inch TFT round Screen]:    
@@ -96,7 +96,7 @@ img.save('output_1bit.bmp')
 ### [IBM BIOS 16x16](https://int10h.org/oldschool-pc-fonts/fontlist/font?ibm_bios) [240x240 1.3 Inch TFT Screen]:    
 <img src='./photos/IBM%20(16X16).png' width='300'><img src='./fonts/IBM%20BIOS%20(8%2C8).bmp' width='300'>  
 
-### Pixelaudio 8x8(Created by the Author) [1.5 Inch 128x128 OLED]:    
+### Pixelaudio 8x8 (Created by the Author) [1.5 Inch 128x128 OLED]:    
 <img src='./photos/pixelaudio.png' width='300'><img src='./fonts/pixelaudio (8,8).bmp' width='300'>  
 
 # LICENSE:
