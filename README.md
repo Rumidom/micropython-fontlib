@@ -78,7 +78,7 @@ img.save('output_1bit.bmp')
 ### [Futuristic 5X7](https://opengameart.org/content/ascii-bitmap-font-futuristic) [84x48 1.5 Inch Nokia 5110 LCD Screen]:    
 <img src='./photos/futuristic.png' width='300'><img src='./fonts/futuristic (5,7).bmp' width='300' >  
 
-### Five 5X5 (Made by the Author) [84x48 1.5 Inch Nokia 5110 LCD Screen]:  
+### Five 5X5 (Created by the Author) [84x48 1.5 Inch Nokia 5110 LCD Screen]:  
 <img src='./photos/five.png' width='300'><img src='./fonts/five (5,5).bmp' width='300'>  
 
 ### [Oldschool 5X7](https://opengameart.org/content/ascii-bitmap-font-oldschool) [84x48 1.5 Inch Nokia 5110 LCD Screen]:    
@@ -95,6 +95,9 @@ img.save('output_1bit.bmp')
 
 ### [IBM BIOS 16x16](https://int10h.org/oldschool-pc-fonts/fontlist/font?ibm_bios) [240x240 1.3 Inch TFT Screen]:    
 <img src='./photos/IBM%20(16X16).png' width='300'><img src='./fonts/IBM%20BIOS%20(8%2C8).bmp' width='300'>  
+
+### Pixelaudio 8x8(Created by the Author) [1.5 Inch 128x128 OLED]:    
+<img src='./photos/pixelaudio.png' width='300'><img src='./fonts/pixelaudio (8,8).bmp' width='300'>  
 
 # LICENSE:
 this project is [MIT licensed](https://github.com/Rumidom/micropython_fontlib/blob/main/LICENSE)
