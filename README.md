@@ -1,5 +1,5 @@
 # Micropython Fontlib
-A micropython library for displaying 1-bit bitmap fonts, and 1-bit bitmap sprites, it was first tested on a monocrome screen (pcd8544 nokia screen) but should work with any monocrome screen through [framebuffer](https://docs.micropython.org/en/latest/library/framebuf.html)
+A tiny micropython library for displaying 1-bit bitmap fonts and sprites, works with any monocrome or color screen through [framebuffer](https://docs.micropython.org/en/latest/library/framebuf.html)
 
 # How to use it
 
