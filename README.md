@@ -27,7 +27,7 @@ five = fontlib.font("five (5,5).bmp") # Loads font to ram
 
 fbuf = framebuf.FrameBuffer(oled.buffer, screen_width, screen_height, framebuf.MONO_VLSB)
 fbuf.fill(0)
-fontlib.prt("The Quick Gray",pos_x,pos_y,spce,fbuf,five) # prints text using font
+fontlib.prt("Hello World",pos_x,pos_y,spce,fbuf,five) # prints text using font
 oled.show()
 ```
 see the [examples folder](https://github.com/Rumidom/Micropython_Fontlib/tree/main/examples) to see how to use it with diferent displays.
