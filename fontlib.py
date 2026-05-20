@@ -14,7 +14,7 @@ def getbitmap(path):
     try:
         file = open(path, "rb")
     except:
-        raise Exception("Cant load font, check if path is correct")
+        raise Exception("Cant load file, check if path is correct")
     filebytes = bytearray(file.read())
     file.close()
     bmptag = filebytes[0:2]
@@ -22,6 +22,8 @@ def getbitmap(path):
     filezise =  int.from_bytes(filebytes[2:6],"little")
     dataOffset = int.from_bytes(filebytes[10:14],"little")
     fmat = int.from_bytes(filebytes[28:30],"little")
+    if fmat != 1:
+        raise ValueError("bmp is not monocromatic")
     pallet = [0,1][b'\x00\x00\x00\x00\xff\xff\xff\xff' == filebytes[54:62]]
     imagedata = bytearray(reversed(filebytes[dataOffset:]))
     bytesperrow = math.ceil(imagesize[0]/8)
@@ -45,17 +47,10 @@ def drawBitmap(path,x,y,fbuf,invert=False):
     imagerows = bmp_tup[0]
     imagesize = bmp_tup[1]
     imagedata = bytearray()
-    bytesperrow = math.ceil(imagesize[0]/8)
-    rowPadding = ((4-(bytesperrow%4))%4)
-    rowsize = bytesperrow +rowPadding
     posx = x +imagesize[0]
     posy = y
     for row in imagerows:
-        if rowPadding > 0:
-            imagedata += row[:-rowPadding]
-        else:
-            imagedata += row
-        
+        imagedata += row
     DrawPixels(x,y,imagedata,imagesize,fbuf,invert=invert)
 
 @micropython.native
