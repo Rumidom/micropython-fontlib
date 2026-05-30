@@ -19,12 +19,12 @@ def getbitmap(path):
     file.close()
     bmptag = filebytes[0:2]
     imagesize = (int.from_bytes(filebytes[18:22],"little"),int.from_bytes(filebytes[22:26],"little"))
-    filezise =  int.from_bytes(filebytes[2:6],"little")
+    filesize =  int.from_bytes(filebytes[2:6],"little")
     dataOffset = int.from_bytes(filebytes[10:14],"little")
     fmat = int.from_bytes(filebytes[28:30],"little")
     if fmat != 1:
         raise ValueError("bmp is not monocromatic")
-    pallet = [0,1][b'\x00\x00\x00\x00\xff\xff\xff\xff' == filebytes[54:62]]
+    pallet = [0,1][b'\x00\x00\x00' == filebytes[54:57]]
     imagedata = bytearray(reversed(filebytes[dataOffset:]))
     bytesperrow = math.ceil(imagesize[0]/8)
     rowPadding = ((4-(bytesperrow%4))%4)
@@ -36,9 +36,12 @@ def getbitmap(path):
     for i,byte_ in enumerate(imagedata):
         imagedata[i] = reverse_Bits(byte_,8)
     for i in range(imagesize[1]):
-        imagerows.append(bytearray(reversed(imagedata[i*rowsize:(i+1)*rowsize])))
+        rowdata = bytearray(reversed(imagedata[i*rowsize:(i+1)*rowsize]))
+        if rowPadding > 0:
+            rowdata = rowdata[:-rowPadding]
+        imagerows.append(rowdata)
     imagerows = tuple(imagerows)
-    return (imagerows,imagesize,filezise,dataOffset,fmat,bmptag,pallet)
+    return (imagerows,imagesize,filesize,dataOffset,fmat,bmptag,pallet)
 
 @micropython.native
 def drawBitmap(path,x,y,fbuf,invert=False):
@@ -169,4 +172,3 @@ def prt(string,xpos,ypos,spce,fbuf,font,invert=False,color = None):
         xpos+=(spce+char_size[0])
         if (invert and i < len(string)-1):
             fbuf.rect(xpos-spce, ypos, spce, string_height,fill)
-
