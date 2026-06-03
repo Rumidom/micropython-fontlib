@@ -129,7 +129,7 @@ def DrawPixels(xpos,ypos,charbytes,charsize,fbuf,invert=False,fill = 1):
 
 @micropython.native      
 def printchar(letter,xpos,ypos,fbuf,font,invert = False,charwidth=None,fill = 1):
-    Schar_dict = {231: (None, 99, 96), 199: (None, 67, 96), 225: (98, 97, None), 233: (98, 101, None), 237: (98, 105, None), 243: (98, 111, None), 250: (98, 117, None), 193: (103, 65, None), 201: (103, 69, None), 205: (103, 73, None), 211: (103, 79, None), 218: (103, 85, None), 226: (99, 97, None), 234: (99, 97, None), 244: (99, 111, None), 227: (94, 97, None), 245: (94, 111, None), 194: (104, 65, None), 202: (104, 69, None), 212: (104, 79, None), 195: (107, 65, None), 213: (107, 79, None)}
+    Schar_dict = {8216:(None,39,None),231: (None, 99, 96), 199: (None, 67, 96), 225: (98, 97, None), 233: (98, 101, None), 237: (98, 105, None), 243: (98, 111, None), 250: (98, 117, None), 193: (103, 65, None), 201: (103, 69, None), 205: (103, 73, None), 211: (103, 79, None), 218: (103, 85, None), 226: (99, 97, None), 234: (99, 97, None), 244: (99, 111, None), 227: (94, 97, None), 245: (94, 111, None), 194: (104, 65, None), 202: (104, 69, None), 212: (104, 79, None), 195: (107, 65, None), 213: (107, 79, None)}
     if charwidth == None:
         charwidth = font.size[0]
     origin = xpos
